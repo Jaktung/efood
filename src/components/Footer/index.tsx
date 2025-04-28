@@ -9,11 +9,11 @@ const Footer = () => {
   return (
     <Foot>
       <FooterContainer>
-        <Logo src={logo} alt="" />
+        <Logo src={logo} alt="logo da efood" />
         <div>
-          <img src={instagram} alt="logo da efood" />
-          <img src={facebook} alt="Instagram" />
-          <img src={twitter} alt="" />
+          <img src={instagram} alt="Instagram" />
+          <img src={facebook} alt="Facebook" />
+          <img src={twitter} alt="Twitter" />
         </div>
         <Description>
           A efood é uma plataforma para divulgação de estabelecimentos, a

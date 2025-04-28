@@ -9,16 +9,20 @@ import {
 
 import sushi from "../../assets/images/sushi.png"
 import estrela from "../../assets/images/favorito.png"
+import Tag from "../Tag"
 
 const Product = () => (
   <ProductContainer>
-    <img src={sushi} alt="" />
+    <img src={sushi} alt="Foto de sushi" />
+    <Tag>Destaques da Semana</Tag>
+    <Tag>Japonesa</Tag>
+
     <Content>
       <ProductHeader>
         <h2>Hioki Sushi</h2>
         <ReviewAverage>
           <span>4.9</span>
-          <img src={estrela} alt="" />
+          <img src={estrela} alt="foto de estrela" />
         </ReviewAverage>
       </ProductHeader>
       <ProductDescription>

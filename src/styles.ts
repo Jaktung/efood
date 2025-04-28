@@ -4,7 +4,7 @@ export const cores = {
   corPrincipal: "#E66767",
   bgColor: "#FFF8F2",
   branco: "#FFFFFF",
-  footerBg: "#FFEBD9",
+  corSecundaria: "#FFEBD9",
 }
 
 const GlobalStyles = createGlobalStyle`

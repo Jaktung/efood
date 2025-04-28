@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { cores } from "../../styles"
 
 export const Foot = styled.footer`
-  background-color: ${cores.footerBg};
+  background-color: ${cores.corSecundaria};
 `
 
 export const FooterContainer = styled.div`
@@ -16,6 +16,7 @@ export const Logo = styled.img`
 `
 
 export const Description = styled.p`
+  font-size: 10px;
   text-align: center;
   margin-top: 80px;
   margin-bottom: 40px;
