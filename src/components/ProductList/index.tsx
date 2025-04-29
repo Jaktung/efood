@@ -1,15 +1,26 @@
 import Product from "../Product"
-import { ProductListGrid } from "./styles"
+import { List, ProductListGrid } from "./styles"
+import Food from "../../models/Foods"
 
-const ProductList = () => {
+type Props = {
+  foods: Food[]
+}
+
+const ProductList = ({ foods }: Props) => {
   return (
     <ProductListGrid>
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      <List>
+        {foods.map((food) => (
+          <Product
+            key={food.id}
+            average={food.average}
+            description={food.description}
+            image={food.image}
+            title={food.title}
+            infos={food.infos}
+          />
+        ))}
+      </List>
     </ProductListGrid>
   )
 }

@@ -1,39 +1,51 @@
 import {
+  Button,
+  Card,
   Content,
-  Link,
-  ProductContainer,
+  Infos,
   ProductDescription,
   ProductHeader,
   ReviewAverage,
 } from "./styles"
 
-import sushi from "../../assets/images/sushi.png"
+import { Link } from "react-router-dom"
+
 import estrela from "../../assets/images/favorito.png"
 import Tag from "../Tag"
 
-const Product = () => (
-  <ProductContainer>
-    <img src={sushi} alt="Foto de sushi" />
-    <Tag>Destaques da Semana</Tag>
-    <Tag>Japonesa</Tag>
+type Props = {
+  image: string
+  title: string
+  average: number
+  description: string
+  infos: string[]
+}
+
+const Product = ({ image, title, average, description, infos }: Props) => (
+  <Card>
+    <Link to="/">
+      <img src={image} alt="Foto de sushi" />
+    </Link>
+    <Infos>
+      {infos.map((info) => (
+        <Tag key={info}>{info}</Tag>
+      ))}
+    </Infos>
 
     <Content>
       <ProductHeader>
-        <h2>Hioki Sushi</h2>
+        <h2>{title}</h2>
         <ReviewAverage>
-          <span>4.9</span>
+          <span>{average}</span>
           <img src={estrela} alt="foto de estrela" />
         </ReviewAverage>
       </ProductHeader>
-      <ProductDescription>
-        Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-        frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-        rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão
-        sem sair do lar com nosso delivery!
-      </ProductDescription>
-      <Link href="#">Saiba mais</Link>
+      <ProductDescription>{description}</ProductDescription>
+      <Link to="perfil">
+        <Button>Saiba mais</Button>
+      </Link>
     </Content>
-  </ProductContainer>
+  </Card>
 )
 
 export default Product

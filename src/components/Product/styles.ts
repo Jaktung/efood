@@ -2,21 +2,22 @@ import styled from "styled-components"
 import { cores } from "../../styles"
 import { TagContainer } from "../Tag/styles"
 
-export const ProductContainer = styled.div`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${cores.branco};
   position: relative;
-
-  ${TagContainer} {
-    margin-right: 8px;
-  }
 `
 
 export const Content = styled.div`
   padding: 8px;
   border: 1px solid ${cores.corPrincipal};
   border-top: none;
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const ProductHeader = styled.div`
@@ -46,16 +47,26 @@ export const ProductDescription = styled.p`
   margin: 16px 0;
 `
 
-export const Link = styled.a`
+export const Button = styled.button`
   display: inline-block;
   color: ${cores.branco};
   background-color: ${cores.corPrincipal};
   text-decoration: none;
   font-size: 14px;
-  font-weight: 700;
   padding: 4px 6px;
+  border: none;
+
+  Button:hover {
+    cursor: pointer;
+  }
 `
 
-export const Tags = styled.div`
-  display: flex;
+export const Infos = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 12px;
+
+  ${TagContainer} {
+    margin-right: 8px;
+  }
 `

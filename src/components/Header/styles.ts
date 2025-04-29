@@ -10,6 +10,8 @@ export const HeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
+  width: 100%;
 `
 
 export const LogoImg = styled.img`
