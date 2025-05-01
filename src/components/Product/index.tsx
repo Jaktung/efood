@@ -23,9 +23,8 @@ type Props = {
 
 const Product = ({ image, title, average, description, infos }: Props) => (
   <Card>
-    <Link to="/">
-      <img src={image} alt="Foto de sushi" />
-    </Link>
+    <img src={image} alt="Foto de sushi" />
+
     <Infos>
       {infos.map((info) => (
         <Tag key={info}>{info}</Tag>

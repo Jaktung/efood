@@ -13,11 +13,6 @@ export const Content = styled.div`
   padding: 8px;
   border: 1px solid ${cores.corPrincipal};
   border-top: none;
-
-  .flex {
-    display: flex;
-    flex-direction: column;
-  }
 `
 
 export const ProductHeader = styled.div`
@@ -55,10 +50,6 @@ export const Button = styled.button`
   font-size: 14px;
   padding: 4px 6px;
   border: none;
-
-  Button:hover {
-    cursor: pointer;
-  }
 `
 
 export const Infos = styled.div`

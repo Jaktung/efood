@@ -1,8 +1,13 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom"
 import Footer from "./components/Footer"
 import GlobalStyles from "./styles"
 import Home from "./pages/Home"
-import Header from "./components/Header"
 import Perfil from "./pages/Perfil"
 
 const rotas = createBrowserRouter([
@@ -16,14 +21,21 @@ const rotas = createBrowserRouter([
   },
 ])
 
+const Rotas = () => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/perfil" element={<Perfil />} />
+  </Routes>
+)
+
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
-      <RouterProvider router={rotas} />
+      <Rotas />
 
       <Footer />
-    </>
+    </BrowserRouter>
   )
 }
 

@@ -29,6 +29,10 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
   }
+
+  button:hover{
+    cursor: pointer;
+  }
 `
 
 export default GlobalStyles

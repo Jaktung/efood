@@ -1,18 +1,22 @@
-import React from "react"
 import ProfileProduct from "../ProfileProduct"
 import { ContainerGrid } from "./styles"
+import FoodTwo from "../../models/FoodsTwo"
 
-const ProfileProductList = () => {
+type Props = {
+  foods: FoodTwo[]
+}
+
+const ProfileProductList = ({ foods }: Props) => {
   return (
     <ContainerGrid className="container">
-      <ul>
-        <ProfileProduct />
-        <ProfileProduct />
-        <ProfileProduct />
-        <ProfileProduct />
-        <ProfileProduct />
-        <ProfileProduct />
-      </ul>
+      {foods.map((food) => (
+        <ProfileProduct
+          key={food.id}
+          description={food.description}
+          image={food.image}
+          title={food.title}
+        />
+      ))}
     </ContainerGrid>
   )
 }
