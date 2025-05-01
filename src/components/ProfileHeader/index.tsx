@@ -7,7 +7,9 @@ const ProfileHeader = () => {
     <Header>
       <Container className="container">
         <HeaderText>Restaurantes</HeaderText>
-        <Image src={logo} alt="logo da efood" />
+        <Link to="/">
+          <Image src={logo} alt="logo da efood" />
+        </Link>
 
         <HeaderShop>0 produto(s) no carrinho</HeaderShop>
       </Container>
