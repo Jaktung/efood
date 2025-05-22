@@ -10,8 +10,8 @@ import {
   Title,
 } from "./styles";
 
-import pizza from "../../assets/images/pizza.png";
 import close from "../../assets/images/close.png";
+import { Food } from "../../pages/Home";
 
 type Props = {
   image: string;
@@ -21,6 +21,13 @@ type Props = {
 
 const ProfileProduct = ({ image, title, description }: Props) => {
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [food, setFood] = useState<Food[]>([]);
+
+  useState(() => {
+    fetch("https://fake-api-tau.vercel.app/api/efood/perfil")
+      .then((res) => res.json())
+      .then((res) => setFood(res));
+  }, []);
 
   return (
     <>
@@ -30,13 +37,13 @@ const ProfileProduct = ({ image, title, description }: Props) => {
           src={image}
           alt="Pizza de Marguerita"
         />
-        <Title>{title}</Title>
-        <p>{description}</p>
+        <Title>{}</Title
+        <p>{}</p>
         <Button>Adicionar ao carrinho</Button>
       </Container>
       <ModalContainer className={modalIsVisible ? "visivel" : ""}>
         <ModalContent className="container">
-          <img src={pizza} alt="Imagem de uma pizza" />
+          <img src={} alt="Imagem de uma pizza" />
           <CloseButton
             onClick={() => setModalIsVisible(false)}
             src={close}

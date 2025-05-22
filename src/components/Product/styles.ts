@@ -7,12 +7,23 @@ export const Card = styled.div`
   flex-direction: column;
   background-color: ${cores.branco};
   position: relative;
+
+  img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
 `
 
 export const Content = styled.div`
   padding: 8px;
   border: 1px solid ${cores.corPrincipal};
   border-top: none;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
 `
 
 export const ProductHeader = styled.div`
