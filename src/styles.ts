@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
 
     p{
         font-size: 14px;
+        line-height: 22px;
     }
   }
 

@@ -1,9 +1,9 @@
-import Banner from "../../components/Banner"
-import ProfileHeader from "../../components/ProfileHeader"
-import ProfileProductList from "../../components/ProfileProductsList"
-import FoodTwo from "../../models/FoodsTwo"
+import Banner from "../../components/Banner";
+import ProfileHeader from "../../components/ProfileHeader";
+import ProfileProductList from "../../components/ProfileProductsList";
+import FoodTwo from "../../models/FoodsTwo";
 
-import pizza from "../../assets/images/pizza.png"
+import pizza from "../../assets/images/pizza.png";
 
 const infos: FoodTwo[] = [
   {
@@ -48,7 +48,7 @@ const infos: FoodTwo[] = [
     title: "Pizza Marguerita",
     image: pizza,
   },
-]
+];
 
 const Perfil = () => {
   return (
@@ -57,7 +57,7 @@ const Perfil = () => {
       <Banner />
       <ProfileProductList foods={infos} />
     </>
-  )
-}
+  );
+};
 
-export default Perfil
+export default Perfil;
