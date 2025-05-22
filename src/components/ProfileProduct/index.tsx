@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   ButtonModal,
@@ -10,63 +10,70 @@ import {
   Title,
 } from "./styles";
 
+import pizza from "../../assets/images/pizza.png";
 import close from "../../assets/images/close.png";
 import { Food } from "../../pages/Home";
+import { useParams } from "react-router-dom";
 
 type Props = {
   image: string;
   title: string;
   description: string;
+  preco: number;
+  id: number;
+  porcao: string;
 };
 
-const ProfileProduct = ({ image, title, description }: Props) => {
+const ProfileProduct = ({
+  image,
+  title,
+  description,
+  preco,
+  porcao,
+}: Props) => {
+  const { id } = useParams();
+
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [food, setFood] = useState<Food[]>([]);
 
-  useState(() => {
-    fetch("https://fake-api-tau.vercel.app/api/efood/perfil")
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((res) => res.json())
       .then((res) => setFood(res));
   }, []);
 
+  function formatarParaBRL(valor: number) {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(valor);
+  }
+
   return (
     <>
       <Container>
-        <img
-          onClick={() => setModalIsVisible(true)}
-          src={image}
-          alt="Pizza de Marguerita"
-        />
-        <Title>{}</Title
-        <p>{}</p>
+        <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
+        <Title>{title}</Title>
+        <p>{description}</p>
         <Button>Adicionar ao carrinho</Button>
       </Container>
       <ModalContainer className={modalIsVisible ? "visivel" : ""}>
         <ModalContent className="container">
-          <img src={} alt="Imagem de uma pizza" />
+          <img src={image} alt={`Imagem de ${title}`} />
           <CloseButton
             onClick={() => setModalIsVisible(false)}
             src={close}
             alt="Imagem de X"
           />
           <div>
-            <h3>Pizza Marguerita</h3>
-            <MainText>
-              A pizza Margherita é uma pizza clássica da culinária italiana,
-              reconhecida por sua simplicidade e sabor inigualável. Ela é feita
-              com uma base de massa fina e crocante, coberta com molho de tomate
-              fresco, queijo mussarela de alta qualidade, manjericão fresco e
-              azeite de oliva extra-virgem. A combinação de sabores é perfeita,
-              com o molho de tomate suculento e ligeiramente ácido, o queijo
-              derretido e cremoso e as folhas de manjericão frescas, que
-              adicionam um toque de sabor herbáceo. É uma pizza simples, mas
-              deliciosa, que agrada a todos os paladares e é uma ótima opção
-              para qualquer ocasião.
-            </MainText>
+            <h3>{title}</h3>
+            <MainText>{description}</MainText>
             <p>
-              <span>Serve: de 2 a 3 pessoas</span>
+              <span>Serve: de {porcao}</span>
             </p>
-            <ButtonModal>Adicionar ao carrinho - R$ 60,90</ButtonModal>
+            <ButtonModal>
+              Adicionar ao carrinho - {formatarParaBRL(preco)}
+            </ButtonModal>
           </div>
         </ModalContent>
         <div className="overlay"></div>

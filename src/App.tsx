@@ -1,32 +1,15 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom"
-import Footer from "./components/Footer"
-import GlobalStyles from "./styles"
-import Home from "./pages/Home"
-import Perfil from "./pages/Perfil"
-
-const rotas = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/perfil",
-    element: <Perfil />,
-  },
-])
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
+import GlobalStyles from "./styles";
+import Home from "./pages/Home";
+import Perfil from "./pages/Perfil";
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/perfil" element={<Perfil />} />
+    <Route path="/perfil/:id" element={<Perfil />} />
   </Routes>
-)
+);
 
 function App() {
   return (
@@ -36,7 +19,7 @@ function App() {
 
       <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

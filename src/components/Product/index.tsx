@@ -8,7 +8,7 @@ import {
   ReviewAverage,
 } from "./styles";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import estrela from "../../assets/images/favorito.png";
 import Tag from "../Tag";
@@ -19,9 +19,10 @@ type Props = {
   average: number;
   description: string;
   infos: string[];
+  id: number;
 };
 
-const Product = ({ image, title, average, description, infos }: Props) => {
+const Product = ({ image, title, average, description, infos, id }: Props) => {
   const getDescription = (description: string) => {
     if (description.length > 100) {
       return description.slice(0, 300) + "...";
@@ -47,7 +48,7 @@ const Product = ({ image, title, average, description, infos }: Props) => {
           </ReviewAverage>
         </ProductHeader>
         <ProductDescription>{getDescription(description)}</ProductDescription>
-        <Link to="perfil">
+        <Link to={`/perfil/${id}`}>
           <Button>Saiba mais</Button>
         </Link>
       </Content>

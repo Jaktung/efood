@@ -32,6 +32,7 @@ const ProductList = ({ foods }: Props) => {
             image={food.capa}
             title={food.titulo}
             infos={getFoodTags(food)}
+            id={food.id}
           />
         ))}
       </List>

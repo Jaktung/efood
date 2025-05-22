@@ -5,6 +5,13 @@ export const Container = styled.div`
   background-color: ${cores.corPrincipal};
   color: ${cores.bgColor};
   padding: 8px;
+
+  > img {
+    width: 100%;
+    height: 168px;
+    object-fit: cover;
+    cursor: pointer;
+  }
 `
 
 export const Title = styled.h2`
