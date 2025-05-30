@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Button,
   ButtonModal,
@@ -10,10 +9,10 @@ import {
   Title,
 } from "./styles";
 
-import pizza from "../../assets/images/pizza.png";
 import close from "../../assets/images/close.png";
 import { Food } from "../../pages/Home";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 type Props = {
   image: string;
@@ -31,16 +30,7 @@ const ProfileProduct = ({
   preco,
   porcao,
 }: Props) => {
-  const { id } = useParams();
-
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [food, setFood] = useState<Food[]>([]);
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setFood(res));
-  }, []);
 
   function formatarParaBRL(valor: number) {
     return new Intl.NumberFormat("pt-BR", {

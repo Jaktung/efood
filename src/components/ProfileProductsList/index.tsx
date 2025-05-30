@@ -1,5 +1,6 @@
 import { Food } from "../../pages/Home";
 import ProfileProduct from "../ProfileProduct";
+
 import { ContainerGrid } from "./styles";
 
 type Props = {
@@ -10,18 +11,20 @@ const ProfileProductList = ({ foods }: Props) => {
   return (
     <>
       <ContainerGrid className="container">
-        {foods.map((food) => (
-          <li key={food.cardapio[0].id}>
-            <ProfileProduct
-              title={food.cardapio[0].nome}
-              image={food.cardapio[0].foto}
-              preco={food.cardapio[0].preco}
-              id={food.cardapio[0].id}
-              description={food.cardapio[0].descricao}
-              porcao={food.cardapio[0].porcao}
-            />
-          </li>
-        ))}
+        {foods.map((food) =>
+          food.cardapio.map((item) => (
+            <li key={item.id}>
+              <ProfileProduct
+                title={item.nome}
+                image={item.foto}
+                preco={item.preco}
+                id={item.id}
+                description={item.descricao}
+                porcao={item.porcao}
+              />
+            </li>
+          ))
+        )}
       </ContainerGrid>
     </>
   );
