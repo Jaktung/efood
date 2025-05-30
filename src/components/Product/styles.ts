@@ -1,75 +1,108 @@
 import styled from "styled-components"
 import { cores } from "../../styles"
-import { TagContainer } from "../Tag/styles"
-import { Link } from "react-router-dom"
 
-export const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${cores.branco};
-  position: relative;
-
-  img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-  }
-`
-
-export const Content = styled.div`
+export const Container = styled.div`
+  background-color: ${cores.corPrincipal};
+  color: ${cores.bgColor};
   padding: 8px;
-  border: 1px solid ${cores.corPrincipal};
-  border-top: none;
 
-  img {
-    width: 16px;
-    height: 16px;
+  > img {
+    width: 100%;
+    height: 168px;
+    object-fit: cover;
+    cursor: pointer;
   }
 `
 
-export const ProductHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  h2 {
-    font-weight: 700;
-    font-size: 18px;
-  }
+export const Title = styled.h2`
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 0;
 `
 
-export const ReviewAverage = styled.div`
-  display: flex;
-  align-items: center;
-
-  span {
-    padding-right: 8px;
-    font-size: 18px;
-    font-weight: 700;
-  }
-`
-
-export const ProductDescription = styled.p`
+export const Description = styled.p`
   line-height: 22px;
-  margin: 16px 0;
+  font-weight: 400;
 `
 
 export const Button = styled.button`
-  display: inline-block;
-  color: ${cores.branco};
-  background-color: ${cores.corPrincipal};
-  text-decoration: none;
+  color: ${cores.corPrincipal};
+  padding: 4px 84px;
   font-size: 14px;
-  padding: 4px 6px;
+  font-weight: bold;
   border: none;
+  margin-top: 8px;
 `
 
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 12px;
+export const ModalContainer = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
 
-  ${TagContainer} {
-    margin-right: 8px;
-  }
+    &.visivel {
+        display: flex;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 `
+
+export const ModalContent = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: ${cores.branco};
+    background-color: ${cores.corPrincipal};
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+
+    img:first-of-type {
+        width: 280px;
+        height: 280px;
+        margin-right: 24px;
+        object-fit: cover;
+    }
+
+    h3{
+        padding-bottom: 16px;
+    }
+
+    p{
+        margin-bottom: 16px;
+    }
+`
+
+export const MainText = styled.p`
+    padding-bottom: 16px;
+`
+
+export const CloseButton = styled.img`
+    position: absolute;
+    top: 8px;
+    right: 8px;
+`
+
+export const ButtonModal = styled.button`
+    background-color: ${cores.corSecundaria};
+    color: ${cores.corPrincipal};
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+`
+

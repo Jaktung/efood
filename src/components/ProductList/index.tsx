@@ -1,42 +1,39 @@
 import { Food } from "../../pages/Home";
 import Product from "../Product";
-import { List, ProductListGrid } from "./styles";
+
+import { ContainerGrid } from "./styles";
+
+type CardapioItem = {
+  id: number;
+  nome: string;
+  descricao: string;
+  preco: number;
+  foto: string;
+  porcao: string;
+};
 
 type Props = {
-  foods: Food[];
+  foods: CardapioItem[];
 };
 
 const ProductList = ({ foods }: Props) => {
-  const getFoodTags = (food: Food) => {
-    const tags = [];
-
-    if (food.tipo) {
-      tags.push(food.tipo);
-    }
-
-    if (food.destacado) {
-      tags.push("Destaque");
-    }
-
-    return tags;
-  };
-
   return (
-    <ProductListGrid>
-      <List>
+    <>
+      <ContainerGrid className="container">
         {foods.map((food) => (
-          <Product
-            key={food.id}
-            average={food.avaliacao}
-            description={food.descricao}
-            image={food.capa}
-            title={food.titulo}
-            infos={getFoodTags(food)}
-            id={food.id}
-          />
+          <li key={food.id}>
+            <Product
+              title={food.nome}
+              image={food.foto}
+              preco={food.preco}
+              id={food.id}
+              description={food.descricao}
+              porcao={food.porcao}
+            />
+          </li>
         ))}
-      </List>
-    </ProductListGrid>
+      </ContainerGrid>
+    </>
   );
 };
 

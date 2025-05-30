@@ -1,6 +1,6 @@
-import ProductList from "../../components/ProductList";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
+import RestaurantList from "../../components/RestaurantList";
 
 export type Food = {
   id: number;
@@ -33,7 +33,7 @@ const Home = () => {
     <>
       <Header />
       <div className="container">
-        <ProductList foods={emAlta} />
+        <RestaurantList foods={emAlta} />
       </div>
     </>
   );

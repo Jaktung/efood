@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+import { Food } from "../Home";
 
 import Banner from "../../components/Banner";
 import ProfileHeader from "../../components/ProfileHeader";
-import ProfileProductList from "../../components/ProfileProductsList";
-import { Food } from "../Home";
-import { useParams } from "react-router-dom";
+import ProductList from "../../components/ProductList";
 
 const Perfil = () => {
   const { id } = useParams();
 
-  const [infos, setInfos] = useState<Food[]>([]);
+  const [cardapio, setCardapio] = useState<Food["cardapio"]>([]);
 
   useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
       .then((res) => res.json())
-      .then((res) => setInfos(res));
+      .then((res) => {
+        const restaurante = res.find((r: Food) => r.id === Number(id));
+        if (restaurante) {
+          setCardapio(restaurante.cardapio);
+        }
+      });
   }, [id]);
 
   return (
     <>
       <ProfileHeader />
       <Banner />
-      <ProfileProductList foods={infos} />
+      <ProductList foods={cardapio} />
     </>
   );
 };

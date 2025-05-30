@@ -1,5 +1,5 @@
-import logo from "../../assets/images/logo.png"
-import { HeaderBgImg, HeaderContent, LogoImg, Title } from "./styles"
+import logo from "../../assets/images/logo.png";
+import { HeaderBgImg, HeaderContent, LogoImg, Title } from "./styles";
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
         </Title>
       </HeaderContent>
     </HeaderBgImg>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

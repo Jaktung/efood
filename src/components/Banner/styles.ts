@@ -1,11 +1,20 @@
 import styled from "styled-components"
-import banner from "../../assets/images/banner.png"
 import retangulo from "../../assets/images/retangulo.png"
 import { cores } from "../../styles"
 
-export const BannerContainer = styled.div`
-  background-image: url(${banner});
+type BannerContainerProps = {
+  backgroundImage?: string;
+}
+
+export const BannerContainer = styled.div<BannerContainerProps>`
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 280px;
+
+  ::first-letter {
+    text-transform: uppercase;
+  }
 `
 
 export const BlackOpacity = styled.div`

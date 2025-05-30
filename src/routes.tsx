@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Home, { Food } from "./pages/Home";
+import Home from "./pages/Home";
 import Perfil from "./pages/Perfil";
 
 const Rotas = () => (

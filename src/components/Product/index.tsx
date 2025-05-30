@@ -1,58 +1,67 @@
 import {
   Button,
-  Card,
-  Content,
-  Infos,
-  ProductDescription,
-  ProductHeader,
-  ReviewAverage,
+  ButtonModal,
+  CloseButton,
+  Container,
+  MainText,
+  ModalContainer,
+  ModalContent,
+  Title,
 } from "./styles";
 
-import { Link, useParams } from "react-router-dom";
-
-import estrela from "../../assets/images/favorito.png";
-import Tag from "../Tag";
+import close from "../../assets/images/close.png";
+import { useState } from "react";
+import { getDescription } from "../Restaurant";
 
 type Props = {
   image: string;
   title: string;
-  average: number;
   description: string;
-  infos: string[];
+  preco: number;
   id: number;
+  porcao: string;
 };
 
-const Product = ({ image, title, average, description, infos, id }: Props) => {
-  const getDescription = (description: string) => {
-    if (description.length > 100) {
-      return description.slice(0, 300) + "...";
-    }
-    return description;
-  };
+const Product = ({ image, title, description, preco, porcao }: Props) => {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
+  function formatarParaBRL(valor: number) {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(valor);
+  }
 
   return (
-    <Card>
-      <img src={image} alt="Foto de sushi" />
-
-      <Infos>
-        {infos.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
-      </Infos>
-      <Content>
-        <ProductHeader>
-          <h2>{title}</h2>
-          <ReviewAverage>
-            <span>{average}</span>
-            <img src={estrela} alt="foto de estrela" />
-          </ReviewAverage>
-        </ProductHeader>
-        <ProductDescription>{getDescription(description)}</ProductDescription>
-        <Link to={`/perfil/${id}`}>
-          <Button>Saiba mais</Button>
-        </Link>
-      </Content>
-    </Card>
+    <>
+      <Container>
+        <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
+        <Title>{title}</Title>
+        <p>{getDescription(description)}</p>
+        <Button>Adicionar ao carrinho</Button>
+      </Container>
+      <ModalContainer className={modalIsVisible ? "visivel" : ""}>
+        <ModalContent className="container">
+          <img src={image} alt={`Imagem de ${title}`} />
+          <CloseButton
+            onClick={() => setModalIsVisible(false)}
+            src={close}
+            alt="Imagem de X"
+          />
+          <div>
+            <h3>{title}</h3>
+            <MainText>{description}</MainText>
+            <p>
+              <span>Serve: de {porcao}</span>
+            </p>
+            <ButtonModal>
+              Adicionar ao carrinho - {formatarParaBRL(preco)}
+            </ButtonModal>
+          </div>
+        </ModalContent>
+        <div className="overlay"></div>
+      </ModalContainer>
+    </>
   );
 };
 

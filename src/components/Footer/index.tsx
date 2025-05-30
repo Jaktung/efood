@@ -1,10 +1,10 @@
-import { Description, Foot, FooterContainer, Logo } from "./styles"
+import { Description, Foot, FooterContainer, Logo } from "./styles";
 
-import logo from "../../assets/images/logo.png"
-import instagram from "../../assets/images/instagram.svg"
-import facebook from "../../assets/images/facebook.svg"
-import twitter from "../../assets/images/twitter.svg"
-import { Link } from "react-router-dom"
+import logo from "../../assets/images/logo.png";
+import instagram from "../../assets/images/instagram.svg";
+import facebook from "../../assets/images/facebook.svg";
+import twitter from "../../assets/images/twitter.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -26,7 +26,7 @@ const Footer = () => {
         </Description>
       </FooterContainer>
     </Foot>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

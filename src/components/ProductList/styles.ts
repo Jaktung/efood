@@ -1,14 +1,13 @@
 import styled from "styled-components"
 
-export const ProductListGrid = styled.div`
-  margin-top: 80px;
-  margin-bottom: 120px;
-
-
-`
-
-export const List = styled.ul`
+export const ContainerGrid = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px 80px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  margin-top: 56px;
+  margin-bottom: 56px;
+
+  li{
+    list-style: none;
+  }
 `
