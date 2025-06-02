@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { cores } from "../../styles"
 import { TagContainer } from "../Tag/styles"
-import { Link } from "react-router-dom"
 
 export const Card = styled.div`
+  width: 472px;
+  height: 398px;
   display: flex;
   flex-direction: column;
   background-color: ${cores.branco};

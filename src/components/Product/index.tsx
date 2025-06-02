@@ -38,7 +38,9 @@ const Product = ({ image, title, description, preco, porcao }: Props) => {
         <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
         <Title>{title}</Title>
         <p>{getDescription(description)}</p>
-        <Button>Adicionar ao carrinho</Button>
+        <Button onClick={() => setModalIsVisible(true)}>
+          Adicionar ao carrinho
+        </Button>
       </Container>
       <ModalContainer className={modalIsVisible ? "visivel" : ""}>
         <ModalContent className="container">

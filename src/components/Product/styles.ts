@@ -61,31 +61,36 @@ export const ModalContainer = styled.div`
 `
 
 export const ModalContent = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    color: ${cores.branco};
-    background-color: ${cores.corPrincipal};
-    padding: 32px;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 960px;
+  color: ${cores.branco};
+  background-color: ${cores.corPrincipal};
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
 
-    img:first-of-type {
-        width: 280px;
-        height: 280px;
-        margin-right: 24px;
-        object-fit: cover;
-    }
+  img:first-of-type {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
 
-    h3{
-        padding-bottom: 16px;
-    }
+  h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
 
-    p{
-        margin-bottom: 16px;
-    }
+  p {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
 `
+
 
 export const MainText = styled.p`
     padding-bottom: 16px;
