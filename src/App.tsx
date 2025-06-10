@@ -2,14 +2,18 @@ import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
 import GlobalStyles from "./styles";
 import Rotas from "./routes";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalStyles />
-      <Rotas />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyles />
+        <Rotas />
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
