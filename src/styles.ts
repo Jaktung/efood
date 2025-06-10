@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 export const cores = {
   corPrincipal: "#E66767",
@@ -13,11 +13,14 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
+    list-style: none;
   }
 
   body{
     color: ${cores.corPrincipal};
     background-color: ${cores.bgColor};
+    text-decoration: none;
+  
 
     p{
         font-size: 14px;
@@ -34,6 +37,15 @@ const GlobalStyles = createGlobalStyle`
   button:hover{
     cursor: pointer;
   }
+`
+
+export const Button = styled.button`
+  color: ${cores.corPrincipal};
+  background-color: ${cores.corSecundaria};
+  padding: 4px 84px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
 `
 
 export default GlobalStyles

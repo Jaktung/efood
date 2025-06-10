@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { cores } from "../../styles"
+import { Button, cores } from "../../styles"
 
 export const Container = styled.div`
   background-color: ${cores.corPrincipal};
@@ -12,6 +12,10 @@ export const Container = styled.div`
     object-fit: cover;
     cursor: pointer;
   }
+
+  ${Button} {
+    margin-top: 8px;
+  }
 `
 
 export const Title = styled.h2`
@@ -23,15 +27,6 @@ export const Title = styled.h2`
 export const Description = styled.p`
   line-height: 22px;
   font-weight: 400;
-`
-
-export const Button = styled.button`
-  color: ${cores.corPrincipal};
-  padding: 4px 84px;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  margin-top: 8px;
 `
 
 export const ModalContainer = styled.div`
@@ -57,6 +52,11 @@ export const ModalContainer = styled.div`
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    ${Button} {
+      padding: 4px 8px;
+      margin-top: 8px;
     }
 `
 

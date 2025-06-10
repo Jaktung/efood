@@ -1,6 +1,8 @@
 import Header from "../../components/Header";
-import { useEffect, useState } from "react";
+
 import RestaurantList from "../../components/RestaurantList";
+
+import { useGetRestaurantsQuery } from "../../services/api";
 
 export type Food = {
   id: number;
@@ -21,22 +23,19 @@ export type Food = {
 };
 
 const Home = () => {
-  const [emAlta, setEmAlta] = useState<Food[]>([]);
+  const { data: emAlta } = useGetRestaurantsQuery();
 
-  useEffect(() => {
-    fetch("https://fake-api-tau.vercel.app/api/efood/restaurantes")
-      .then((res) => res.json())
-      .then((res) => setEmAlta(res));
-  }, []);
-
-  return (
-    <>
-      <Header />
-      <div className="container">
-        <RestaurantList foods={emAlta} />
-      </div>
-    </>
-  );
+  if (emAlta) {
+    return (
+      <>
+        <Header />
+        <div className="container">
+          <RestaurantList foods={emAlta} />
+        </div>
+      </>
+    );
+  }
+  return <h4>Carregando...</h4>;
 };
 
 export default Home;

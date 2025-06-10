@@ -1,5 +1,4 @@
 import {
-  Button,
   ButtonModal,
   CloseButton,
   Container,
@@ -12,6 +11,7 @@ import {
 import close from "../../assets/images/close.png";
 import { useState } from "react";
 import { getDescription } from "../Restaurant";
+import { Button } from "../../styles";
 
 type Props = {
   image: string;
@@ -56,9 +56,7 @@ const Product = ({ image, title, description, preco, porcao }: Props) => {
             <p>
               <span>Serve: de {porcao}</span>
             </p>
-            <ButtonModal>
-              Adicionar ao carrinho - {formatarParaBRL(preco)}
-            </ButtonModal>
+            <Button>Adicionar ao carrinho - {formatarParaBRL(preco)}</Button>
           </div>
         </ModalContent>
         <div className="overlay"></div>
