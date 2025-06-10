@@ -1,5 +1,4 @@
 import {
-  ButtonModal,
   CloseButton,
   Container,
   MainText,
@@ -7,11 +6,14 @@ import {
   ModalContent,
   Title,
 } from "./styles";
+import { Button } from "../../styles";
 
 import close from "../../assets/images/close.png";
+
 import { useState } from "react";
 import { getDescription } from "../Restaurant";
-import { Button } from "../../styles";
+import { useDispatch } from "react-redux";
+import { add } from "../../store/reducers/cart";
 
 type Props = {
   image: string;
@@ -22,15 +24,30 @@ type Props = {
   porcao: string;
 };
 
-const Product = ({ image, title, description, preco, porcao }: Props) => {
+export function formatarParaBRL(valor: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(valor);
+}
+
+const Product = ({ image, title, description, preco, porcao, id }: Props) => {
   const [modalIsVisible, setModalIsVisible] = useState(false);
 
-  function formatarParaBRL(valor: number) {
-    return new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    }).format(valor);
-  }
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(
+      add({
+        id,
+        nome: title,
+        descricao: description,
+        preco,
+        foto: image,
+        porcao: porcao,
+      })
+    );
+  };
 
   return (
     <>
@@ -38,9 +55,7 @@ const Product = ({ image, title, description, preco, porcao }: Props) => {
         <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
         <Title>{title}</Title>
         <p>{getDescription(description)}</p>
-        <Button onClick={() => setModalIsVisible(true)}>
-          Adicionar ao carrinho
-        </Button>
+        <Button onClick={addToCart}>Adicionar ao carrinho</Button>
       </Container>
       <ModalContainer className={modalIsVisible ? "visivel" : ""}>
         <ModalContent className="container">

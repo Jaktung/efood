@@ -18,7 +18,7 @@ export const HeaderText = styled.div`
   margin-right: 340px;
 `
 
-export const HeaderShop = styled.p`
+export const CartButton = styled.p`
   font-size: 18px;
   font-weight: 900;
 `

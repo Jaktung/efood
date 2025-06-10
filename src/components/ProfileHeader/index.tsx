@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-import { Container, Header, HeaderShop, HeaderText, Image } from "./styles";
+import { Container, Header, CartButton, HeaderText, Image } from "./styles";
+
+import { open } from "../../store/reducers/cart";
+
+import { useDispatch, useSelector } from "react-redux";
+import { RootReducer } from "../../store";
 
 const ProfileHeader = () => {
+  const dispatch = useDispatch();
+  const { items } = useSelector((state: RootReducer) => state.cart);
+
+  const openCart = () => {
+    dispatch(open());
+  };
+
   return (
     <Header>
       <Container className="container">
@@ -10,7 +22,9 @@ const ProfileHeader = () => {
         <Link to="/">
           <Image src={logo} alt="logo da efood" />
         </Link>
-        <HeaderShop>0 produto(s) no carrinho</HeaderShop>
+        <CartButton onClick={openCart}>
+          {items.length} produto(s) no carrinho
+        </CartButton>
       </Container>
     </Header>
   );

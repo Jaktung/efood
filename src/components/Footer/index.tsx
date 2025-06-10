@@ -4,6 +4,7 @@ import logo from "../../assets/images/logo.png";
 import instagram from "../../assets/images/instagram.svg";
 import facebook from "../../assets/images/facebook.svg";
 import twitter from "../../assets/images/twitter.svg";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {

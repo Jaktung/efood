@@ -1,4 +1,3 @@
-import { Food } from "../../pages/Home";
 import Product from "../Product";
 
 import { ContainerGrid } from "./styles";
