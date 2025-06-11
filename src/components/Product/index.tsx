@@ -1,6 +1,7 @@
 import {
   CloseButton,
   Container,
+  Description,
   MainText,
   ModalContainer,
   ModalContent,
@@ -13,7 +14,7 @@ import close from "../../assets/images/close.png";
 import { useState } from "react";
 import { getDescription } from "../Restaurant";
 import { useDispatch } from "react-redux";
-import { add } from "../../store/reducers/cart";
+import { add, open } from "../../store/reducers/cart";
 
 type Props = {
   image: string;
@@ -49,13 +50,24 @@ const Product = ({ image, title, description, preco, porcao, id }: Props) => {
     );
   };
 
+  const openCart = () => {
+    dispatch(open());
+  };
+
   return (
     <>
       <Container>
         <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
         <Title>{title}</Title>
-        <p>{getDescription(description)}</p>
-        <Button onClick={addToCart}>Adicionar ao carrinho</Button>
+        <Description>{getDescription(description)}</Description>
+        <Button
+          onClick={() => {
+            addToCart();
+            openCart();
+          }}
+        >
+          Adicionar ao carrinho
+        </Button>
       </Container>
       <ModalContainer className={modalIsVisible ? "visivel" : ""}>
         <ModalContent className="container">

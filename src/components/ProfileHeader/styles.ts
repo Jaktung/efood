@@ -1,10 +1,15 @@
 import styled from "styled-components"
 import bgImage from "../../assets/images/fundo.png"
+import { breakpoints } from "../../styles"
 
 export const Header = styled.header`
   background-image: url(${bgImage});
   background-position: 50%;
   padding: 80px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    display: none;
+  }
 `
 
 export const Container = styled.div`

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Button, cores } from "../../styles"
+import { breakpoints, Button, cores } from "../../styles"
 
 export const Container = styled.div`
   background-color: ${cores.corPrincipal};
@@ -16,6 +16,13 @@ export const Container = styled.div`
   ${Button} {
     margin-top: 8px;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* <- centraliza horizontalmente */
+    text-align: center;
+  }
 `
 
 export const Title = styled.h2`
@@ -27,6 +34,10 @@ export const Title = styled.h2`
 export const Description = styled.p`
   line-height: 22px;
   font-weight: 400;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 12px 0 12px 0;
+  }
 `
 
 export const ModalContainer = styled.div`

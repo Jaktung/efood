@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { breakpoints } from "../../styles"
 
 export const ContainerGrid = styled.ul`
   display: grid;
@@ -9,5 +10,13 @@ export const ContainerGrid = styled.ul`
 
   li{
     list-style: none;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* <- centraliza horizontalmente */
+    gap: 32px; /* opcional: espaço entre os cards */
+    padding: 40px 20px;
   }
 `
