@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import bgImage from "../../assets/images/fundo.png"
-import { breakpoints } from "../../styles"
+import { breakpoints, cores } from "../../styles"
+import { Link } from "react-router-dom"
 
 export const Header = styled.header`
   background-image: url(${bgImage});
@@ -17,10 +18,12 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const HeaderText = styled.div`
+export const HeaderText = styled(Link)`
   font-size: 18px;
   font-weight: 900;
   margin-right: 340px;
+  text-decoration: none;
+  color: ${cores.corPrincipal};
 `
 
 export const CartButton = styled.p`

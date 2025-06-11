@@ -5,6 +5,8 @@ export const Container = styled.div`
   background-color: ${cores.corPrincipal};
   color: ${cores.bgColor};
   padding: 8px;
+  max-height: 398px;
+  height: 100%;
 
   > img {
     width: 100%;
@@ -18,6 +20,13 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* <- centraliza horizontalmente */
+    text-align: center;
+  }
+
+  @media (max-width: ${breakpoints.desktop}) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* <- centraliza horizontalmente */

@@ -19,4 +19,8 @@ export const ContainerGrid = styled.ul`
     gap: 32px; /* opcional: espaço entre os cards */
     padding: 40px 20px;
   }
+
+  @media (max-width: ${breakpoints.desktop}) {
+     grid-template-columns: 1fr 1fr;
+  }
 `

@@ -4,7 +4,8 @@ import { TagContainer } from "../Tag/styles"
 
 export const Card = styled.div`
   width: 472px;
-  height: 398px;
+  max-height: 398px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: ${cores.branco};

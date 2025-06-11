@@ -18,7 +18,7 @@ const ProfileHeader = () => {
   return (
     <Header>
       <Container className="container">
-        <HeaderText>Restaurantes</HeaderText>
+        <HeaderText to="/">Restaurantes</HeaderText>
         <Link to="/">
           <Image src={logo} alt="logo da efood" />
         </Link>
