@@ -60,12 +60,7 @@ const Product = ({ image, title, description, preco, porcao, id }: Props) => {
         <img onClick={() => setModalIsVisible(true)} src={image} alt={title} />
         <Title>{title}</Title>
         <Description>{getDescription(description)}</Description>
-        <Button
-          onClick={() => {
-            addToCart();
-            openCart();
-          }}
-        >
+        <Button onClick={() => setModalIsVisible(true)}>
           Adicionar ao carrinho
         </Button>
       </Container>
@@ -83,7 +78,14 @@ const Product = ({ image, title, description, preco, porcao, id }: Props) => {
             <p>
               <span>Serve: de {porcao}</span>
             </p>
-            <Button>Adicionar ao carrinho - {formatarParaBRL(preco)}</Button>
+            <Button
+              onClick={() => {
+                addToCart();
+                openCart();
+              }}
+            >
+              Adicionar ao carrinho - {formatarParaBRL(preco)}
+            </Button>
           </div>
         </ModalContent>
         <div className="overlay"></div>
