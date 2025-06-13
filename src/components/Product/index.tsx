@@ -88,7 +88,7 @@ const Product = ({ image, title, description, preco, porcao, id }: Props) => {
             </Button>
           </div>
         </ModalContent>
-        <div className="overlay"></div>
+        <div onClick={() => setModalIsVisible(false)} className="overlay"></div>
       </ModalContainer>
     </>
   );
